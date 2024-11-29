@@ -74,7 +74,7 @@ export default function Achievement() {
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogContent className="w-full max-w-6xl h-[80vh] p-0">
             <iframe
-              src="http://localhost:8501/"
+              src="http://localhost:8501"
               className="w-full h-full rounded-md"
               title="NLP Dashboard"
             />

@@ -905,9 +905,6 @@ video {
 .h-\[400px\] {
   height: 400px;
 }
-.h-\[80vh\] {
-  height: 80vh;
-}
 .h-auto {
   height: auto;
 }
@@ -982,9 +979,6 @@ video {
 }
 .max-w-5xl {
   max-width: 64rem;
-}
-.max-w-6xl {
-  max-width: 72rem;
 }
 .max-w-lg {
   max-width: 32rem;
@@ -1272,9 +1266,6 @@ video {
 }
 .rounded-lg {
   border-radius: var(--radius);
-}
-.rounded-md {
-  border-radius: calc(var(--radius) - 2px);
 }
 .rounded-sm {
   border-radius: calc(var(--radius) - 4px);
@@ -1584,13 +1575,13 @@ video {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .pb-12 {
   padding-bottom: 3rem;

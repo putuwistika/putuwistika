@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState } from "react"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+import React from "react"
 import { Button } from "@/components/ui/button"
 
 interface AchievementProps {
@@ -38,7 +37,9 @@ const achievements: AchievementProps[] = [
 ]
 
 export default function Achievement() {
-  const [isOpen, setIsOpen] = useState(false)
+  const openNLPDashboard = () => {
+    window.open('http://134.209.105.5:8501/', '_blank')
+  }
 
   return (
     <section className="bg-gray-50 py-10 px-4">
@@ -64,22 +65,12 @@ export default function Achievement() {
 
         <div className="mt-8 flex justify-center">
           <Button 
-            onClick={() => setIsOpen(true)}
+            onClick={openNLPDashboard}
             className="bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 px-8 rounded-lg shadow-lg transform transition-transform hover:scale-105"
           >
             Dashboard NLP
           </Button>
         </div>
-
-        <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogContent className="w-full max-w-6xl h-[80vh] p-0">
-            <iframe
-              src="http://localhost:8501"
-              className="w-full h-full rounded-md"
-              title="NLP Dashboard"
-            />
-          </DialogContent>
-        </Dialog>
       </div>
     </section>
   )

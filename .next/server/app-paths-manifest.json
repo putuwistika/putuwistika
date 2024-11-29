@@ -1,3 +1,4 @@
 {
+  "/page": "app/page.js",
   "/achievement/page": "app/achievement/page.js"
 }

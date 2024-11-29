@@ -1,9 +1,13 @@
-import React from "react";
+'use client'
+
+import React, { useState } from "react"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
 
 interface AchievementProps {
-  title: string;
-  date: string;
-  description: string;
+  title: string
+  date: string
+  description: string
 }
 
 const achievements: AchievementProps[] = [
@@ -11,7 +15,7 @@ const achievements: AchievementProps[] = [
     title: "Full Stack Data Science Certification",
     date: "2024",
     description:
-      "Certified in Full Stack Data Science by ITB’s Directorate of Non-Regular Education.",
+      "Certified in Full Stack Data Science by ITB's Directorate of Non-Regular Education.",
   },
   {
     title: "Sanbercode Fast Track Data Engineer",
@@ -31,15 +35,18 @@ const achievements: AchievementProps[] = [
     description:
       "Earned a certification in Microsoft Excel (Office 2019) with a focus on advanced features.",
   },
-];
+]
 
-const Achievement: React.FC = () => {
+export default function Achievement() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <section className="bg-gray-50 py-10 px-4">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
           Achievements
         </h2>
+
         <ul className="space-y-6">
           {achievements.map((achievement, index) => (
             <li
@@ -54,9 +61,26 @@ const Achievement: React.FC = () => {
             </li>
           ))}
         </ul>
+
+        <div className="mt-8 flex justify-center">
+          <Button 
+            onClick={() => setIsOpen(true)}
+            className="bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 px-8 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+          >
+            Dashboard NLP
+          </Button>
+        </div>
+
+        <Dialog open={isOpen} onOpenChange={setIsOpen}>
+          <DialogContent className="w-full max-w-6xl h-[80vh] p-0">
+            <iframe
+              src="http://localhost:8501/"
+              className="w-full h-full rounded-md"
+              title="NLP Dashboard"
+            />
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
-  );
-};
-
-export default Achievement;
+  )
+}

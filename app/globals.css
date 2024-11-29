@@ -131,6 +131,12 @@ body {
   }
 }
 
+@media (min-width: 820px) {
+  .container {
+    max-width: 820px;
+  }
+}
+
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
@@ -157,6 +163,41 @@ body {
     margin-bottom: 1rem;
   }
 }
+
+@media (min-width: 820px) and (max-width: 1180px) {
+  html {
+    font-size: 15.5px; /* Penyesuaian ukuran font untuk iPad Air */
+  }
+
+  .container {
+    max-width: 820px; /* Ukuran maksimal container untuk iPad Air */
+  }
+
+  body {
+    padding: 1rem 1.5rem; /* Penyesuaian padding untuk iPad Air */
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Tambahkan jarak antar elemen form */
+  }
+
+  form input,
+  form textarea,
+  form button {
+    width: 100%;
+  }
+
+  .heading-responsive-md {
+    @apply text-3xl; /* Penyesuaian heading untuk iPad Air */
+  }
+
+  .text-responsive-base {
+    @apply text-lg; /* Penyesuaian ukuran teks untuk iPad Air */
+  }
+}
+
 
 /* Flexbox utility classes for responsive layouts */
 .flex-col-mobile {

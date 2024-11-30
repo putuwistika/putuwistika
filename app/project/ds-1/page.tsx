@@ -46,7 +46,7 @@ const projectDetails: ProjectDetail = {
     "Flask API",
     "Docker"
   ],
-  demoLink: "https://demo-churn-prediction.example.com",
+  demoLink: "http://134.209.105.5:8501/",
   githubLink: "https://github.com/example/churn-prediction",
   highlights: [
     "85% prediction accuracy",

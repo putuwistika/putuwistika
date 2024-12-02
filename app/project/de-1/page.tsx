@@ -47,7 +47,7 @@ const projectDetails: ProjectDetail = {
     "AWS",
     "Apache Spark"
   ],
-  demoLink: "https://github.com/krishna0604/project-4-spiderweb-team/tree/main",
+  demoLink: "https://drive.google.com/file/d/19CfpsxNtOqe1_9Eacyf03GX9kSWM3WFk/view?usp=sharing",
   highlights: [
     "Built end-to-end real-time fraud detection pipeline",
     "Implemented data orchestration using Apache Airflow",

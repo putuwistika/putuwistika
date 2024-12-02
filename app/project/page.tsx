@@ -18,31 +18,31 @@ interface Project {
 const projects: Project[] = [
   {
     id: "ds-1",
-    title: "Customer Churn Prediction",
+    title: "NLP Sentiment Analysis: Calon Presiden Indonesia 2024",
     category: "data_science",
-    shortDescription: "Machine learning model to predict customer churn using historical customer data with 85% accuracy",
-    thumbnail: "/images/projects/churn-prediction.jpg",
-    tags: ["Python", "Scikit-learn", "XGBoost", "Feature Engineering"],
-    demoLink: "https://demo-churn-prediction.example.com"
+    shortDescription: "This project uses Natural Language Processing (NLP) to analyze public sentiments about Indonesias 2024 presidential candidates. Insights from this project help identify public preferences and discussion trends",
+    thumbnail: "/images/projects/nlp1.png",
+    tags: ["Python", "Scikit-learn", "Natural Language Toolkit (NLTK)", "Feature Engineering"],
+    demoLink: "http://134.209.105.5:8501/"
   },
   {
     id: "de-1",
     title: "Real-time Data Pipeline",
     category: "data_engineering",
     shortDescription: "Built scalable ETL pipeline processing 1M+ events/day using Apache Kafka and Spark",
-    thumbnail: "/images/projects/data-pipeline.jpg",
+    thumbnail: "/images/projects/de1.png",
     tags: ["Apache Kafka", "Spark", "AWS", "Python"],
     demoLink: "https://github.com/example/data-pipeline"
-  },
-  {
-    id: "da-1",
-    title: "Sales Analytics Dashboard",
-    category: "data_analytics",
-    shortDescription: "Interactive dashboard for sales performance analysis with predictive insights",
-    thumbnail: "/images/projects/sales-dashboard.jpg",
-    tags: ["Power BI", "SQL", "DAX", "Data Modeling"],
-    demoLink: "https://powerbi.example.com/sales-dashboard"
   }
+  // {
+  //   id: "da-1",
+  //   title: "Sales Analytics Dashboard",
+  //   category: "data_analytics",
+  //   shortDescription: "Interactive dashboard for sales performance analysis with predictive insights",
+  //   thumbnail: "/images/projects/sales-dashboard.jpg",
+  //   tags: ["Power BI", "SQL", "DAX", "Data Modeling"],
+  //   demoLink: "https://powerbi.example.com/sales-dashboard"
+  // }
 ];
 
 const ProjectPage: React.FC = () => {
@@ -53,7 +53,7 @@ const ProjectPage: React.FC = () => {
     { id: "all", label: "All Projects" },
     { id: "data_science", label: "Data Science" },
     { id: "data_engineering", label: "Data Engineering" },
-    { id: "data_analytics", label: "Data Analytics" }
+    // { id: "data_analytics", label: "Data Analytics" }
   ];
 
   const filteredProjects = projects.filter(project => 

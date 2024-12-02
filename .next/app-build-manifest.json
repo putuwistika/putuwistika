@@ -21,6 +21,21 @@
       "static/chunks/main-app.js",
       "static/chunks/app/project/page.js"
     ],
+    "/project/ds-1/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/project/ds-1/page.js"
+    ],
+    "/achievement/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/achievement/page.js"
+    ],
+    "/project/de-1/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/project/de-1/page.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

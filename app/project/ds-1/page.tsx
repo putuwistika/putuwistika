@@ -26,14 +26,14 @@ interface ProjectDetail {
 
 const projectDetails: ProjectDetail = {
   id: "ds-1",
-  title: "Customer Churn Prediction",
+  title: "NLP Sentiment Analysis: Calon Presiden Indonesia 2024",
   category: "data_science",
-  fullDescription: "A machine learning model that predicts customer churn with 85% accuracy using historical customer behavior data. This project helps businesses identify at-risk customers and take proactive retention measures.",
-  thumbnail: "/images/projects/churn-prediction.jpg",
+  fullDescription: 'This project uses Natural Language Processing (NLP) to analyze public sentiments about Indonesias 2024 presidential candidates. Data from social media, news, and forums are processed to classify opinions into positive, negative, or neutral. Key steps include data cleaning, feature extraction with TF-IDF, and sentiment classification using Logistic Regression, Random Forest, and BERT. Insights from this project help identify public preferences and discussion trends.',
+  thumbnail: "/images/projects/nlp1.png",
   images: [
-    "/images/projects/churn-1.jpg",
-    "/images/projects/churn-2.jpg",
-    "/images/projects/churn-3.jpg"
+    "/images/projects/nlp1.png",
+    "/images/projects/nlp2.png",
+    "/images/projects/nlp3.png"
   ],
   tags: ["Machine Learning", "Python", "Scikit-learn", "XGBoost"],
   technologies: [
@@ -41,32 +41,34 @@ const projectDetails: ProjectDetail = {
     "Scikit-learn",
     "Pandas",
     "NumPy",
-    "XGBoost",
+    "Natural Language Toolkit (NLTK)",
     "Feature Engineering",
     "Flask API",
+    "Streamlit",
+    "Pyspark",
     "Docker"
   ],
   demoLink: "http://134.209.105.5:8501/",
-  githubLink: "https://github.com/example/churn-prediction",
+  githubLink: "https://github.com/putuwistika/Sentiment-Analysis-Capres2024",
   highlights: [
-    "85% prediction accuracy",
-    "Processed 1M+ customer records",
-    "Reduced customer churn by 25%",
-    "Automated reporting system"
+    "Achieved 87% sentiment classification accuracy",
+    "Crawled and analyzed 10,000+ tweets",
+    "Leveraged BERT for sentiment classification",
+    "Provided interactive visualizations via Streamlit"
   ],
-  duration: "3 months",
-  role: "Lead Data Scientist",
+  dduration: "2 months",
+  role: "Data Scientist",
   challenges: [
-    "Handling imbalanced dataset",
-    "Real-time prediction requirements",
-    "Complex feature engineering needs",
-    "Integration with existing systems"
+    "Limited labeled data for training",
+    "High noise levels in social media text",
+    "Ensuring data diversity across candidates",
+    "Efficient processing of large datasets"
   ],
   solutions: [
-    "Implemented SMOTE for balanced training",
-    "Built scalable API with Flask",
-    "Created automated feature pipeline",
-    "Developed microservice architecture"
+    "Manually labeled a subset of data for model fine-tuning",
+    "Applied text cleaning and preprocessing techniques",
+    "Used TF-IDF and fine-tuned BERT for feature extraction",
+    "Implemented scalable processing pipelines with Python"
   ]
 };
 

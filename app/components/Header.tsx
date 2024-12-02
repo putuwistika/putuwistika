@@ -74,12 +74,12 @@ const Header: React.FC = () => {
           description="Data pipeline and infrastructure projects"
           href="/project?category=data_engineering"
         />
-        <ProjectMenuItem
+        {/* <ProjectMenuItem
           icon="📊"
           text="Data Analytics"
           description="Business intelligence and analytics projects"
           href="/project?category=data_analytics"
-        />
+        /> */}
       </div>
     </div>
   );
@@ -165,7 +165,7 @@ const Header: React.FC = () => {
                     <Link href="/project" className="block py-2 text-white hover:bg-gray-700">All Projects</Link>
                     <Link href="/project?category=data_science" className="block py-2 text-white hover:bg-gray-700">Data Science</Link>
                     <Link href="/project?category=data_engineering" className="block py-2 text-white hover:bg-gray-700">Data Engineering</Link>
-                    <Link href="/project?category=data_analytics" className="block py-2 text-white hover:bg-gray-700">Data Analytics</Link>
+                    {/* <Link href="/project?category=data_analytics" className="block py-2 text-white hover:bg-gray-700">Data Analytics</Link> */}
                   </div>
                 )}
               </div>

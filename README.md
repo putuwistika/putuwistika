@@ -3,7 +3,7 @@
 
 Graduate of Institut Teknologi Bandung with expertise in Data Science, Analytics, and Engineering. Currently a Data Scientist at Digistar Telkom Indonesia and Data Engineer at ITB Career Center, developing AI-driven solutions to boost efficiency. During my Data Scientist internship, I built NLP models integrated with Llama 3.1, while my Data Engineer internship refined my skills in database management, process modeling, and teamwork. Passionate about leveraging analytical skills to deliver strategic insights and support business growth.  
 * 🌍  I'm based in Bandung, West Java 
-* 🖥️  See my portfolio at [https://putuwistika.online](http://s://putuwistika.online/) 
+* 🖥️  See my portfolio at [https://putuwistika.online](https://putuwistika.online/) 
 * ✉️  You can contact me at [putuferrywistika@gmail.com](mailto:putuferrywistika@gmail.com)
 
 ### Skills  

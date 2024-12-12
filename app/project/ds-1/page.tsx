@@ -48,7 +48,7 @@ const projectDetails: ProjectDetail = {
     "Pyspark",
     "Docker"
   ],
-  demoLink: "http://134.209.105.5:8501/",
+  demoLink: "http://159.89.206.165:5003",
   githubLink: "https://github.com/putuwistika/Sentiment-Analysis-Capres2024",
   highlights: [
     "Achieved 87% sentiment classification accuracy",
@@ -56,7 +56,7 @@ const projectDetails: ProjectDetail = {
     "Leveraged BERT for sentiment classification",
     "Provided interactive visualizations via Streamlit"
   ],
-  dduration: "2 months",
+  duration: "2 months",
   role: "Data Scientist",
   challenges: [
     "Limited labeled data for training",

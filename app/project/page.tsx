@@ -23,7 +23,24 @@ const projects: Project[] = [
     shortDescription: "This project uses Natural Language Processing (NLP) to analyze public sentiments about Indonesias 2024 presidential candidates. Insights from this project help identify public preferences and discussion trends",
     thumbnail: "/images/projects/nlp1.png",
     tags: ["Python", "Scikit-learn", "Natural Language Toolkit (NLTK)", "Feature Engineering"],
-    demoLink: "http://134.209.105.5:8501/"
+    demoLink: "http://159.89.206.165:5003/"
+  },
+  {
+    id: "ds-2",
+    title: "Development of a Product Recommendation System Using Web Scraping 10.000+ Data, PySpark, Apache Airflow, and Integration with Llama 3.1",
+    category: "data_science",
+    shortDescription: "A comprehensive product recommendation system project focused on building similarity-based recommendations using data scraped from padiUMKM platform. The system integrates various technologies including Selenium, BeautifulSoup, PySpark, PostgreSQL, and Llama 3.1 for enhanced contextual recommendations.",
+    thumbnail: "/images/projects/ds-2.png",
+    tags: ["Selenium",
+    "BeautifulSoup",
+    "PySpark",
+    "PostgreSQL",
+    "Apache Airflow",
+    "Llama 3.1",
+    "Cosine Similarity",
+    "Jupyter Notebook",
+    "Docker"],
+    demoLink: "https://github.com/putuwistika/Project-WebScraping"
   },
   {
     id: "de-1",

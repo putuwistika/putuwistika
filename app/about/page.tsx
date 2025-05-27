@@ -1,18 +1,36 @@
 import React from 'react';
 import { Github, Linkedin, Mail, Phone, MapPin, Calendar, Award } from 'lucide-react';
 
-const CombinedAnimation = ({ text, className }) => (
+interface CombinedAnimationProps {
+  text: string;
+  className?: string;
+}
+
+const CombinedAnimation: React.FC<CombinedAnimationProps> = ({ text, className }) => (
   <h1 className={className}>{text}</h1>
 );
 
-const TechLogo = ({ icon, name }) => (
+interface TechLogoProps {
+  icon: string;
+  name: string;
+}
+
+const TechLogo: React.FC<TechLogoProps> = ({ icon, name }) => (
   <div className="flex items-center gap-2 bg-gray-800/60 px-3 py-2 rounded-lg hover:bg-gray-700/60 transition-all">
     <img src={icon} alt={name} className="w-6 h-6 invert" />
     <span className="text-sm">{name}</span>
   </div>
 );
 
-const ExperienceCard = ({ role, company, period, location, achievements }) => (
+interface ExperienceCardProps {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  achievements: string[];
+}
+
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ role, company, period, location, achievements }) => (
   <div className="relative pl-4 pb-12">
     <div className="absolute left-0 top-2 h-full w-0.5 bg-blue-500"></div>
     <div className="absolute left-[-5px] top-2 h-3 w-3 rounded-full bg-blue-500"></div>
@@ -44,7 +62,14 @@ const ExperienceCard = ({ role, company, period, location, achievements }) => (
   </div>
 );
 
-const LeadershipCard = ({ role, organization, period, achievements }) => (
+interface LeadershipCardProps {
+  role: string;
+  organization: string;
+  period: string;
+  achievements: string[];
+}
+
+const LeadershipCard: React.FC<LeadershipCardProps> = ({ role, organization, period, achievements }) => (
   <div className="bg-gray-800/40 backdrop-blur-sm p-6 rounded-xl hover:bg-gray-800/60 transition-all">
     <h3 className="text-xl font-bold text-white mb-2">{role}</h3>
     <div className="flex items-center gap-2 text-gray-400 mb-4">
@@ -63,8 +88,19 @@ const LeadershipCard = ({ role, organization, period, achievements }) => (
   </div>
 );
 
-const ResumePage = () => {
-  const skills = {
+interface Skill {
+  name: string;
+  icon: string;
+}
+
+interface Skills {
+  languages: Skill[];
+  ml: Skill[];
+  tools: Skill[];
+}
+
+const ResumePage: React.FC = () => {
+  const skills: Skills = {
     languages: [
       { name: "Python", icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/4.25.0/python.svg" },
       { name: "PostgreSQL", icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/4.25.0/postgresql.svg" },

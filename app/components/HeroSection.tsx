@@ -215,7 +215,7 @@ const HeroSection: React.FC = () => {
                   <span className="text-white font-semibold">I'm a</span>
                   <WordRotate 
                     className="text-2xl font-bold bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text" 
-                    words={["Data Scientist", "Algorithm Researcher", "Mathematical Modeler"]}
+                    words={["Data Scientist", "AI Enthusiast"]}
                   />
                 </div>
               </div>

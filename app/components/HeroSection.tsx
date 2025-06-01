@@ -116,7 +116,7 @@ const ProfileImage: React.FC = () => {
       <div className="absolute inset-0 bg-gray-800 bg-opacity-30 rounded-lg backdrop-blur-sm border border-gray-700 p-4">
         <div className="relative w-full h-full overflow-hidden rounded-lg">
           <Image
-            src="/images/profile/2.png"
+            src="/images/profile/3.png"
             alt="Profile"
             fill
             style={{ objectFit: "cover" }}

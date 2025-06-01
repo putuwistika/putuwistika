@@ -111,7 +111,7 @@ const CareerHighlights: React.FC = () => {
     <section className="bg-black text-white pt-32 pb-16">
       <div className="container mx-auto px-4">
         <h4 className="text-sm sm:text-lg font-medium mb-2 sm:mb-4 text-center text-gray-400 font-lato">
-          Adaptive. Integrity. Humble.
+          Adaptive. Integrity. Humble. Self-starter Mindset. 
         </h4>
         <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-8 text-center text-blue-500 font-lato">
           Achievement

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, Linkedin } from 'lucide-react';
 import ShimmerButton from '../../components/ui/shimmer-button';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 import Image from 'next/image';
@@ -130,12 +130,20 @@ const Header: React.FC = () => {
               </div>
 
               <div className="hidden md:flex justify-end">
-                <ShimmerButton
-                  shimmerColor="#ffffff33"
-                  background="linear-gradient(#00000033, #00000033, #00000033)"
+                <a 
+                  href="https://www.linkedin.com/in/putuwistika/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
-                  Ask Me Anything
-                </ShimmerButton>
+                  <ShimmerButton
+                    shimmerColor="#0077B5"
+                    background="linear-gradient(135deg, #0077B5, #005885)"
+                    className="flex items-center gap-2"
+                  >
+                    <Linkedin size={18} />
+                    Connect on LinkedIn
+                  </ShimmerButton>
+                </a>
               </div>
             </div>
           </nav>
@@ -172,13 +180,21 @@ const Header: React.FC = () => {
               <Link href="/achievement" className="block px-3 py-2 text-white hover:bg-gray-700">Achievement</Link>
             </div>
             <div className="px-2 py-3">
-              <ShimmerButton
-                shimmerColor="#ffffff33"
-                background="linear-gradient(#00000033, #00000033, #00000033)"
-                className="w-full"
+              <a 
+                href="https://www.linkedin.com/in/putuwistika/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
               >
-                Ask Me Anything
-              </ShimmerButton>
+                <ShimmerButton
+                  shimmerColor="#0077B5"
+                  background="linear-gradient(135deg, #0077B5, #005885)"
+                  className="w-full flex items-center justify-center gap-2"
+                >
+                  <Linkedin size={18} />
+                  Connect on LinkedIn
+                </ShimmerButton>
+              </a>
             </div>
           </div>
         )}

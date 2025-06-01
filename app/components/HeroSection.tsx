@@ -206,7 +206,7 @@ const HeroSection: React.FC = () => {
                 
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white font-lato">
                   <CombinedAnimation
-                    text="Ferry Wistika"
+                    text="I Putu Ferry Wistika"
                     className="text-4xl lg:text-5xl font-bold text-white font-lato"
                   />
                 </h2>

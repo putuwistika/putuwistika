@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Eye, Brain, Award, ChevronDown } from 'lucide-react';
+import { ArrowRight, Eye, Award } from 'lucide-react';
 import CombinedAnimation from "@/components/magicui/hero-anim";
 import WordRotate from "@/components/magicui/word-rotate";
 
@@ -135,55 +135,25 @@ const ActionButton: React.FC<{
   children: React.ReactNode; 
   variant: 'primary' | 'secondary';
   icon?: React.ReactNode;
-  download?: boolean;
-}> = ({ href, children, variant, icon, download = false }) => {
+}> = ({ href, children, variant, icon }) => {
   const baseClasses = "inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform";
   const variants = {
     primary: "bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 shadow-lg hover:shadow-xl hover:scale-105",
     secondary: "bg-gray-800/60 text-white border border-gray-600 hover:bg-gray-700/60 hover:border-blue-500/50 backdrop-blur-sm"
   };
 
-  const Component = download ? 'a' : Link;
-  const props = download ? { href, download: true } : { href };
-
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <Component 
-        {...props}
+      <Link 
+        href={href}
         className={`${baseClasses} ${variants[variant]}`}
       >
         {children}
         {icon}
-      </Component>
-    </motion.div>
-  );
-};
-
-const ScrollIndicator: React.FC = () => {
-  const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
-  };
-
-  return (
-    <motion.div 
-      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 text-center z-30 cursor-pointer group"
-      animate={{ y: [0, 10, 0] }}
-      transition={{ duration: 2, repeat: Infinity }}
-      onClick={scrollToContent}
-    >
-      <div className="text-sm mb-2 group-hover:text-blue-400 transition-colors">Scroll to explore more</div>
-      <motion.div
-        className="flex justify-center"
-        whileHover={{ scale: 1.2 }}
-      >
-        <ChevronDown className="w-6 h-6 group-hover:text-blue-400 transition-colors" />
-      </motion.div>
+      </Link>
     </motion.div>
   );
 };
@@ -236,7 +206,7 @@ const HeroSection: React.FC = () => {
                 
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white font-lato">
                   <CombinedAnimation
-                    text="I Putu Ferry Wistika"
+                    text="Ferry Wistika"
                     className="text-4xl lg:text-5xl font-bold text-white font-lato"
                   />
                 </h2>
@@ -311,7 +281,6 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      <ScrollIndicator />
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent z-20"></div>
     </section>
   );

@@ -192,10 +192,10 @@ const HeroSection: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-green-400 font-semibold">Currently at DANA Indonesia</span>
-              </div>
+              </div> */}
               
               <div>
                 <h1 className="text-4xl lg:text-5xl font-bold mb-4">

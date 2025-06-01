@@ -49,7 +49,16 @@ const projects: Project[] = [
     shortDescription: "Data-driven insights on retaining e-commerce customers with the goal of becoming a top customer-centric e-commerce leader. Successfully reduced customer churn by ≥69% through advanced machine learning techniques, achieving a retention rate of ≥31%. Implemented Support Vector Machine (SVM) for its stability and lower risk of overfitting, achieving an F-2 score of 0.86. The model is deployed with a Node.js interface for real-time churn prediction.",
     thumbnail: "/images/projects/ds-3.png",
     tags: ["Python", "Support Vector Machine", "Machine Learning", "Node.js", "Data Analytics", "Customer Retention", "F-2 Score", "Model Deployment"],
-    demoLink: "https://github.com/putuwistika/Project-BliData"
+    demoLink: "https://github.com/putuwistika/Project-BliData" 
+  },
+  {
+    id: "ds-4",
+    title: "Time Series Prediction using SARIMA for Inventory Optimization",
+    category: "data_science",
+    shortDescription: "Advanced time series forecasting model utilizing SARIMA (Seasonal AutoRegressive Integrated Moving Average) for inventory optimization. The model generates highly accurate and stable forecasts suitable for strategic business decision-making, achieving an exceptional MAPE of 4%. Rigorous validation through Ljung-Box testing confirms that residuals show no specific patterns, indicating a well-fitted model with white noise residuals, ensuring reliable forecast performance.",
+    thumbnail: "/images/projects/ds-4.png",
+    tags: ["Python", "SARIMA", "Time Series Analysis", "Inventory Optimization", "Statistical Modeling", "Ljung-Box Test", "MAPE", "Business Intelligence", "Forecasting"],
+    demoLink: "."
   },
   {
     id: "de-1",
@@ -58,7 +67,7 @@ const projects: Project[] = [
     shortDescription: "Built scalable ETL pipeline processing 1M+ events/day using Apache Kafka and Spark",
     thumbnail: "/images/projects/de1.png",
     tags: ["Apache Kafka", "Spark", "AWS", "Python"],
-    demoLink: ""
+    demoLink: "."
   }
   // {
   //   id: "da-1",

@@ -221,7 +221,7 @@ const HeroSection: React.FC = () => {
   if (!mounted) return null;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
       <AnimatedBackground />
       <div className="absolute inset-0 z-0">
         <video
@@ -235,8 +235,8 @@ const HeroSection: React.FC = () => {
       </div>
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-30"></div>
       
-      <div className="container mx-auto px-4 z-10 relative">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+      <div className="container mx-auto px-4 z-10 relative flex items-center justify-center min-h-screen">
+        <div className="flex flex-col lg:flex-row items-center gap-12 w-full max-w-7xl">
           {/* Left Content */}
           <div className="lg:w-1/2 text-left">
             <motion.div
@@ -294,8 +294,8 @@ const HeroSection: React.FC = () => {
                   <div>
                     <h3 className="text-white font-semibold mb-1">Current Impact at DANA Indonesia</h3>
                     <p className="text-gray-300 text-sm">
-                      Achieved <span className="text-green-400 font-semibold">71% cost optimization</span> through 
-                      mathematical modeling and advanced algorithmic solutions, demonstrating measurable ROI from research-driven approaches.
+                      Researched and implemented optimal storage tiers and retention policies, achieving a <span className="text-green-400 font-semibold">71% annual reduction</span> in storage and compute costs. 
+                      Performed Pareto analysis on compute nodes and table-query access patterns to identify high-growth or inefficient jobs.
                     </p>
                   </div>
                 </div>
@@ -365,34 +365,16 @@ const HeroSection: React.FC = () => {
             
             {/* Achievement Stats */}
             <motion.div 
-              className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4"
+              className="mt-8 flex justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.9 }}
             >
               <StatsCard 
-                icon={<TrendingUp className="w-6 h-6" />}
-                number="71%"
-                label="Cost Reduction"
-                delay={1.0}
-              />
-              <StatsCard 
-                icon={<Code className="w-6 h-6" />}
-                number="4%"
-                label="MAPE Achieved"
-                delay={1.1}
-              />
-              <StatsCard 
-                icon={<Database className="w-6 h-6" />}
-                number="80K+"
-                label="Data Points"
-                delay={1.2}
-              />
-              <StatsCard 
                 icon={<Award className="w-6 h-6" />}
                 number="8+"
                 label="Certifications"
-                delay={1.3}
+                delay={1.0}
               />
             </motion.div>
           </div>

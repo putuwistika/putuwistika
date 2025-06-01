@@ -43,13 +43,22 @@ const projects: Project[] = [
     demoLink: "https://github.com/putuwistika/Project-WebScraping"
   },
   {
+    id: "ds-3",
+    title: "Churn Prediction: Turning Churn into Opportunity",
+    category: "data_science",
+    shortDescription: "Data-driven insights on retaining e-commerce customers with the goal of becoming a top customer-centric e-commerce leader. Successfully reduced customer churn by ≥69% through advanced machine learning techniques, achieving a retention rate of ≥31%. Implemented Support Vector Machine (SVM) for its stability and lower risk of overfitting, achieving an F-2 score of 0.86. The model is deployed with a Node.js interface for real-time churn prediction.",
+    thumbnail: "/images/projects/ds-3.png",
+    tags: ["Python", "Support Vector Machine", "Machine Learning", "Node.js", "Data Analytics", "Customer Retention", "F-2 Score", "Model Deployment"],
+    demoLink: "https://github.com/putuwistika/Project-BliData"
+  },
+  {
     id: "de-1",
     title: "Real-time Data Pipeline",
     category: "data_engineering",
     shortDescription: "Built scalable ETL pipeline processing 1M+ events/day using Apache Kafka and Spark",
     thumbnail: "/images/projects/de1.png",
     tags: ["Apache Kafka", "Spark", "AWS", "Python"],
-    demoLink: "https://github.com/example/data-pipeline"
+    demoLink: ""
   }
   // {
   //   id: "da-1",

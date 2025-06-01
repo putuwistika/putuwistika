@@ -266,7 +266,7 @@ const HeroSection: React.FC = () => {
                 <span className="text-2xl font-semibold text-white">I'm a</span>
                 <WordRotate 
                   className="text-3xl font-bold bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text" 
-                  words={["Data Scientist", "Data Engineer", "AI Engineer", "ML Researcher"]}
+                  words={["Data Scientist", "Algorithm Researcher", "Mathematical Modeler", "ML Engineer"]}
                 />
               </div>
 
@@ -276,10 +276,30 @@ const HeroSection: React.FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <span className="text-blue-400 font-semibold">ITB Graduate</span> specializing in transforming data into business value. 
-                Currently driving <span className="text-green-400 font-semibold">71% cost optimization</span> at DANA Indonesia 
-                through advanced analytics and ML solutions.
+                <span className="text-purple-400 font-semibold">Self-starter</span> dedicated to translating complex data insights into actionable business strategies. 
+                I leverage expertise in <span className="text-blue-400 font-semibold">mathematics, statistics, and advanced programming</span> to drive organizational growth, 
+                with a passion for <span className="text-orange-400 font-semibold">algorithm research and mathematical modeling</span>.
               </motion.p>
+
+              <motion.div 
+                className="bg-gray-800/30 backdrop-blur-sm border border-blue-500/30 rounded-xl p-4 mb-8 max-w-2xl"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <div className="flex items-start gap-3">
+                  <div className="text-blue-400 mt-1">
+                    <Brain className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold mb-1">Current Impact at DANA Indonesia</h3>
+                    <p className="text-gray-300 text-sm">
+                      Achieved <span className="text-green-400 font-semibold">71% cost optimization</span> through 
+                      mathematical modeling and advanced algorithmic solutions, demonstrating measurable ROI from research-driven approaches.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
 
               {/* Action Buttons */}
               <motion.div 
@@ -306,7 +326,7 @@ const HeroSection: React.FC = () => {
 
               {/* Quick Contact */}
               <motion.div 
-                className="flex flex-wrap gap-4 text-sm text-gray-400"
+                className="flex flex-wrap gap-4 text-sm text-gray-400 mb-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
@@ -314,6 +334,27 @@ const HeroSection: React.FC = () => {
                 <span>📧 putuferrywistika@gmail.com</span>
                 <span>📱 +62 81236627276</span>
                 <span>📍 Jakarta, Indonesia</span>
+              </motion.div>
+
+              {/* Core Values Highlight */}
+              <motion.div 
+                className="flex flex-wrap gap-4 text-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <div className="flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-lg px-3 py-2">
+                  <Code className="w-4 h-4 text-purple-400" />
+                  <span className="text-purple-300 font-medium">Self-Starter Mindset</span>
+                </div>
+                <div className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-lg px-3 py-2">
+                  <Brain className="w-4 h-4 text-blue-400" />
+                  <span className="text-blue-300 font-medium">Research-Driven</span>
+                </div>
+                <div className="flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 rounded-lg px-3 py-2">
+                  <TrendingUp className="w-4 h-4 text-orange-400" />
+                  <span className="text-orange-300 font-medium">Business Impact</span>
+                </div>
               </motion.div>
             </motion.div>
           </div>
@@ -336,9 +377,9 @@ const HeroSection: React.FC = () => {
                 delay={1.0}
               />
               <StatsCard 
-                icon={<Brain className="w-6 h-6" />}
-                number="95%"
-                label="ML Accuracy"
+                icon={<Code className="w-6 h-6" />}
+                number="4%"
+                label="MAPE Achieved"
                 delay={1.1}
               />
               <StatsCard 
@@ -364,11 +405,11 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
         >
-          <p className="text-gray-400 mb-4">Specialized in</p>
+          <p className="text-gray-400 mb-4">Research & Development Expertise</p>
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              "Python", "Machine Learning", "Apache Airflow", "PostgreSQL", 
-              "TensorFlow", "PySpark", "Docker", "Cloud Computing"
+              "Mathematical Modeling", "Algorithm Research", "Statistical Analysis", "Advanced Programming",
+              "Machine Learning", "Apache Airflow", "Python", "TensorFlow"
             ].map((tech, index) => (
               <motion.span 
                 key={tech}

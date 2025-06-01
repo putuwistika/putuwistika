@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Eye, Code, Database, Brain, TrendingUp, Award, ChevronDown } from 'lucide-react';
+import { ArrowRight, Download, Eye, Brain, Award, ChevronDown } from 'lucide-react';
 import CombinedAnimation from "@/components/magicui/hero-anim";
 import WordRotate from "@/components/magicui/word-rotate";
 
@@ -27,7 +27,7 @@ const AnimatedBackground: React.FC = () => {
 
     const stars: { x: number; y: number; radius: number; opacity: number; speed: number }[] = [];
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 150; i++) {
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -67,7 +67,7 @@ const AnimatedBackground: React.FC = () => {
         canvas.width / 2, canvas.height + 500, 0,
         canvas.width / 2, canvas.height + 500, canvas.height
       );
-      lightGradient.addColorStop(0, 'rgba(66, 103, 212, 0.3)');
+      lightGradient.addColorStop(0, 'rgba(66, 103, 212, 0.2)');
       lightGradient.addColorStop(1, 'rgba(66, 103, 212, 0)');
       ctx.fillStyle = lightGradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -91,30 +91,10 @@ const AnimatedBackground: React.FC = () => {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
 };
 
-const BottomCurve: React.FC = () => {
-  return (
-    <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-      <svg
-        viewBox="0 0 1440 75"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-auto"
-        preserveAspectRatio="none"
-      >
-        <rect width="1440" height="600" fill="url(#lightSpectrum)" />
-        <path
-          d="M0 600V300C240 100 480 0 720 0C960 0 1200 100 1440 300V600H0Z"
-          fill="#000000"
-        />
-      </svg>
-    </div>
-  );
-};
-
 const ProfileImage: React.FC = () => {
   return (
     <motion.div 
-      className="relative w-[400px] h-[400px] mx-auto"
+      className="relative w-[350px] h-[350px] mx-auto"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.5 }}
@@ -150,24 +130,6 @@ const ProfileImage: React.FC = () => {
   );
 };
 
-const StatsCard: React.FC<{ icon: React.ReactNode; number: string; label: string; delay: number }> = ({ 
-  icon, number, label, delay 
-}) => (
-  <motion.div 
-    className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 text-center hover:border-blue-500/50 transition-all"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay }}
-    whileHover={{ scale: 1.05 }}
-  >
-    <div className="flex justify-center mb-2 text-blue-400">
-      {icon}
-    </div>
-    <div className="text-2xl font-bold text-white mb-1">{number}</div>
-    <div className="text-sm text-gray-400">{label}</div>
-  </motion.div>
-);
-
 const ActionButton: React.FC<{ 
   href: string; 
   children: React.ReactNode; 
@@ -175,7 +137,7 @@ const ActionButton: React.FC<{
   icon?: React.ReactNode;
   download?: boolean;
 }> = ({ href, children, variant, icon, download = false }) => {
-  const baseClasses = "inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform";
+  const baseClasses = "inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform";
   const variants = {
     primary: "bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 shadow-lg hover:shadow-xl hover:scale-105",
     secondary: "bg-gray-800/60 text-white border border-gray-600 hover:bg-gray-700/60 hover:border-blue-500/50 backdrop-blur-sm"
@@ -200,16 +162,31 @@ const ActionButton: React.FC<{
   );
 };
 
-const ScrollIndicator: React.FC = () => (
-  <motion.div 
-    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 text-center z-20"
-    animate={{ y: [0, 10, 0] }}
-    transition={{ duration: 2, repeat: Infinity }}
-  >
-    <div className="text-sm mb-2">Scroll to explore</div>
-    <ChevronDown className="w-6 h-6 mx-auto" />
-  </motion.div>
-);
+const ScrollIndicator: React.FC = () => {
+  const scrollToContent = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
+
+  return (
+    <motion.div 
+      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 text-center z-30 cursor-pointer group"
+      animate={{ y: [0, 10, 0] }}
+      transition={{ duration: 2, repeat: Infinity }}
+      onClick={scrollToContent}
+    >
+      <div className="text-sm mb-2 group-hover:text-blue-400 transition-colors">Scroll to explore more</div>
+      <motion.div
+        className="flex justify-center"
+        whileHover={{ scale: 1.2 }}
+      >
+        <ChevronDown className="w-6 h-6 group-hover:text-blue-400 transition-colors" />
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const HeroSection: React.FC = () => {
   const [mounted, setMounted] = useState(false);
@@ -221,7 +198,7 @@ const HeroSection: React.FC = () => {
   if (!mounted) return null;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <AnimatedBackground />
       <div className="absolute inset-0 z-0">
         <video
@@ -230,132 +207,84 @@ const HeroSection: React.FC = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-30"
         />
       </div>
-      <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-30"></div>
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent z-20"></div>
       
-      <div className="container mx-auto px-4 z-10 relative flex items-center justify-center min-h-screen">
-        <div className="flex flex-col lg:flex-row items-center gap-12 w-full max-w-7xl">
+      <div className="container mx-auto px-6 z-10 relative">
+        <div className="flex flex-col lg:flex-row items-center gap-16 max-w-6xl mx-auto">
           {/* Left Content */}
-          <div className="lg:w-1/2 text-left">
+          <div className="lg:w-1/2 text-left space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="space-y-6"
             >
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-green-400 font-semibold">Currently at DANA Indonesia</span>
               </div>
               
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
-                  Hello, I'm
-                </span>
-              </h1>
-              
-              <h2 className="text-4xl lg:text-6xl font-bold mb-6 text-white font-lato">
-                <CombinedAnimation
-                  text="I Putu Ferry Wistika"
-                  className="text-4xl lg:text-6xl font-bold text-white font-lato"
-                />
-              </h2>
+              <div>
+                <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+                  <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+                    Hello, I'm
+                  </span>
+                </h1>
+                
+                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white font-lato">
+                  <CombinedAnimation
+                    text="I Putu Ferry Wistika"
+                    className="text-4xl lg:text-5xl font-bold text-white font-lato"
+                  />
+                </h2>
 
-              <div className="mb-6 text-gray-300 flex flex-wrap items-center gap-2">
-                <span className="text-2xl font-semibold text-white">I'm a</span>
-                <WordRotate 
-                  className="text-3xl font-bold bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text" 
-                  words={["Data Scientist", "Algorithm Researcher", "Mathematical Modeler", "ML Engineer"]}
-                />
+                <div className="text-gray-300 flex flex-wrap items-center gap-2 text-xl">
+                  <span className="text-white font-semibold">I'm a</span>
+                  <WordRotate 
+                    className="text-2xl font-bold bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text" 
+                    words={["Data Scientist", "Algorithm Researcher", "Mathematical Modeler"]}
+                  />
+                </div>
               </div>
 
               <motion.p 
-                className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl"
+                className="text-lg text-gray-300 leading-relaxed max-w-xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
                 <span className="text-purple-400 font-semibold">Self-starter</span> dedicated to translating complex data insights into actionable business strategies. 
-                I leverage expertise in <span className="text-blue-400 font-semibold">mathematics, statistics, and advanced programming</span> to drive organizational growth, 
-                with a passion for <span className="text-orange-400 font-semibold">algorithm research and mathematical modeling</span>.
+                I leverage expertise in <span className="text-blue-400 font-semibold">mathematics, statistics, and advanced programming</span> to drive organizational growth.
               </motion.p>
+            </motion.div>
 
-              <motion.div 
-                className="bg-gray-800/30 backdrop-blur-sm border border-blue-500/30 rounded-xl p-4 mb-8 max-w-2xl"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <div className="flex items-start gap-3">
-                  <div className="text-blue-400 mt-1">
-                    <Brain className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold mb-1">Current Impact at DANA Indonesia</h3>
-                    <p className="text-gray-300 text-sm">
-                      Researched and implemented optimal storage tiers and retention policies, achieving a <span className="text-green-400 font-semibold">71% annual reduction</span> in storage and compute costs. 
-                      Performed Pareto analysis on compute nodes and table-query access patterns to identify high-growth or inefficient jobs.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+            {/* Action Buttons */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <ActionButton href="/about" variant="primary" icon={<ArrowRight className="w-5 h-5" />}>
+                Discover My Journey
+              </ActionButton>
+              <ActionButton href="/project" variant="secondary" icon={<Eye className="w-5 h-5" />}>
+                View Projects
+              </ActionButton>
+            </motion.div>
 
-              {/* Action Buttons */}
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-4 mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                <ActionButton href="/about" variant="primary" icon={<ArrowRight className="w-5 h-5" />}>
-                  Discover My Journey
-                </ActionButton>
-                <ActionButton href="/project" variant="secondary" icon={<Eye className="w-5 h-5" />}>
-                  View Projects
-                </ActionButton>
-                <ActionButton 
-                  href="/resume.pdf" 
-                  variant="secondary" 
-                  icon={<Download className="w-5 h-5" />}
-                  download={true}
-                >
-                  Download CV
-                </ActionButton>
-              </motion.div>
-
-              {/* Quick Contact */}
-              <motion.div 
-                className="flex flex-wrap gap-4 text-sm text-gray-400 mb-6"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                <span>📧 putuferrywistika@gmail.com</span>
-                <span>📱 +62 81236627276</span>
-                <span>📍 Jakarta, Indonesia</span>
-              </motion.div>
-
-              {/* Core Values Highlight */}
-              <motion.div 
-                className="flex flex-wrap gap-4 text-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                <div className="flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-lg px-3 py-2">
-                  <Code className="w-4 h-4 text-purple-400" />
-                  <span className="text-purple-300 font-medium">Self-Starter Mindset</span>
-                </div>
-                <div className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-lg px-3 py-2">
-                  <Brain className="w-4 h-4 text-blue-400" />
-                  <span className="text-blue-300 font-medium">Research-Driven</span>
-                </div>
-                <div className="flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 rounded-lg px-3 py-2">
-                  <TrendingUp className="w-4 h-4 text-orange-400" />
-                  <span className="text-orange-300 font-medium">Business Impact</span>
-                </div>
-              </motion.div>
+            {/* Contact Info */}
+            <motion.div 
+              className="flex flex-col gap-2 text-sm text-gray-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              <span>📧 putuferrywistika@gmail.com</span>
+              <span>📍 Jakarta, Indonesia</span>
             </motion.div>
           </div>
 
@@ -363,54 +292,27 @@ const HeroSection: React.FC = () => {
           <div className="lg:w-1/2 relative">
             <ProfileImage />
             
-            {/* Achievement Stats */}
+            {/* Single Certification Stat */}
             <motion.div 
               className="mt-8 flex justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.9 }}
             >
-              <StatsCard 
-                icon={<Award className="w-6 h-6" />}
-                number="8+"
-                label="Certifications"
-                delay={1.0}
-              />
+              <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 text-center hover:border-blue-500/50 transition-all">
+                <div className="flex justify-center mb-3 text-blue-400">
+                  <Award className="w-8 h-8" />
+                </div>
+                <div className="text-3xl font-bold text-white mb-1">8+</div>
+                <div className="text-gray-400">Professional Certifications</div>
+              </div>
             </motion.div>
           </div>
         </div>
-
-        {/* Technology Highlights */}
-        <motion.div 
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-        >
-          <p className="text-gray-400 mb-4">Research & Development Expertise</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              "Mathematical Modeling", "Algorithm Research", "Statistical Analysis", "Advanced Programming",
-              "Machine Learning", "Apache Airflow", "Python", "TensorFlow"
-            ].map((tech, index) => (
-              <motion.span 
-                key={tech}
-                className="px-4 py-2 bg-gray-800/40 border border-gray-600/50 rounded-full text-sm text-gray-300 backdrop-blur-sm"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 1.1 + index * 0.05 }}
-                whileHover={{ scale: 1.1, borderColor: '#3b82f6' }}
-              >
-                {tech}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
       </div>
 
       <ScrollIndicator />
-      <BottomCurve />
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent z-30"></div>
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent z-20"></div>
     </section>
   );
 };

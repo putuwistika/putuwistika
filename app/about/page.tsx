@@ -196,7 +196,7 @@ const AboutPage: React.FC = () => {
               </p>
               <br />
               <p className="text-lg text-gray-300 leading-relaxed">
-                Combines strong statistical foundation with hands-on experience in building end-to-end ML pipelines using <span className="text-blue-400 font-semibold">Apache Airflow</span>, from experimental research to production deployment. Proficient in communicating technical concepts to stakeholders and fostering effective team collaboration. Dedicated to translating complex data insights into actionable business strategies, leveraging expertise in mathematics, statistics, and advanced programming to support organizational growth.
+                Combines strong statistical foundation with hands-on experience in building end-to-end ML pipelines using <span className="text-blue-400 font-semibold">Apache Airflow</span>, from experimental research to production deployment. Proficient in communicating technical concepts to stakeholders and fostering effective team collaboration. Dedicated to translating complex data insights into actionable business strategies, leveraging expertise in <span className="text-orange-400 font-semibold">mathematics, statistics, and advanced programming</span> to support organizational growth.
               </p>
             </div>
           </section>

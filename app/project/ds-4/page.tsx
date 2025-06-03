@@ -53,7 +53,7 @@ const projectDetails: ProjectDetail = {
     "AIC Model Selection",
     "Statistical Testing"
   ],
-  demoLink: ".",
+  demoLink: "https://github.com/putuwistika/project1-time-series-retail-forecasting",
   highlights: [
     "Achieved exceptional MAPE of 4% for monthly sales predictions, surpassing the ≤15% target",
     "Reduced stockout incidents by 40% through accurate demand forecasting",

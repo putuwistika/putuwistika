@@ -58,7 +58,7 @@ const projects: Project[] = [
     shortDescription: "Advanced time series forecasting model utilizing SARIMA (Seasonal AutoRegressive Integrated Moving Average) for inventory optimization. The model generates highly accurate and stable forecasts suitable for strategic business decision-making, achieving an exceptional MAPE of 4%. Rigorous validation through Ljung-Box testing confirms that residuals show no specific patterns, indicating a well-fitted model with white noise residuals, ensuring reliable forecast performance.",
     thumbnail: "/images/projects/ds-4.png",
     tags: ["Python", "SARIMA", "Time Series Analysis", "Inventory Optimization", "Statistical Modeling", "Ljung-Box Test", "MAPE", "Business Intelligence", "Forecasting"],
-    demoLink: "."
+    demoLink: "https://github.com/putuwistika/project1-time-series-retail-forecasting"
   },
   {
     id: "de-1",

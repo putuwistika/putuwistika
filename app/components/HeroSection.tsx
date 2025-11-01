@@ -102,7 +102,7 @@ const ProfileImage: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl backdrop-blur-sm border border-blue-500/30 p-4 shadow-2xl">
         <div className="relative w-full h-full overflow-hidden rounded-xl">
           <Image
-            src="https://github.com/putuwistika/putuwistika/blob/fcd1fa1631cf5b41d5c5c44a4c4f500decb3c135/public/images/profile/3.png?raw=true"
+            src="/images/profile/3.png"
             alt="I Putu Ferry Wistika - Data Scientist & Engineer"
             fill
             style={{ objectFit: "cover" }}

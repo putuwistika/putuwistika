@@ -110,12 +110,12 @@ const ProfileImage: React.FC = () => {
             priority
           />
           {/* Floating badges */}
-          <motion.div 
-            className="absolute top-4 right-4 bg-green-500 text-black px-3 py-1 rounded-full text-xs font-bold"
+          <motion.div
+            className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold"
             animate={{ y: [0, -5, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            Available for Hire
+            Data Analyst at DANA
           </motion.div>
           <motion.div 
             className="absolute bottom-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold"

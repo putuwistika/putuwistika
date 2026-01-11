@@ -35,7 +35,18 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
 
-      - name: 📤 Deploy to VPS (Zero Downtime)
+      - name: 📦 Package Build Artifacts
+        run: |
+          tar -czf build.tar.gz \
+            .next \
+            public \
+            package.json \
+            package-lock.json \
+            next.config.mjs \
+            Dockerfile \
+            .dockerignore
+
+      - name: 📤 Deploy to VPS (Zero Downtime with Docker)
         env:
           VPS_HOST: ${{ secrets.VPS_HOST }}
           VPS_USERNAME: ${{ secrets.VPS_USERNAME }}
@@ -43,32 +54,56 @@ jobs:
         run: |
           ssh-keyscan -H $VPS_HOST >> ~/.ssh/known_hosts
 
-          # Rsync files (fast, only transfer changes)
-          rsync -avz --delete \
-            --exclude 'node_modules' \
-            --exclude '.git' \
-            --exclude '.next/cache' \
-            -e "ssh -p $VPS_PORT" \
-            ./ $VPS_USERNAME@$VPS_HOST:/var/www/putuwistika/
+          # Transfer build artifacts (cepat, cuma ~20MB)
+          scp -P $VPS_PORT build.tar.gz $VPS_USERNAME@$VPS_HOST:/var/www/putuwistika/
 
-          # Deploy with PM2 (zero downtime reload)
+          # Deploy with Docker (zero downtime)
           ssh -p $VPS_PORT $VPS_USERNAME@$VPS_HOST << 'ENDSSH'
             set -e
             cd /var/www/putuwistika
 
-            # Install deps (fast with cache)
-            npm ci --production --prefer-offline
+            # Extract build
+            tar -xzf build.tar.gz
+            rm build.tar.gz
 
-            # Zero-downtime reload with PM2
-            if pm2 list | grep -q putuwistika; then
-              pm2 reload ecosystem.config.js --update-env
+            # Build new image (with cache, cepat)
+            docker build -t putuwistika:new .
+
+            # Start container baru di background
+            docker run -d \
+              --name putuwistika-new \
+              --network host \
+              -e PORT=3001 \
+              putuwistika:new
+
+            # Health check container baru
+            sleep 5
+            if curl -f http://localhost:3001 > /dev/null 2>&1; then
+              echo "✅ New container healthy!"
+
+              # Switch port & stop old container
+              docker stop putuwistika 2>/dev/null || true
+              docker rm putuwistika 2>/dev/null || true
+              docker stop putuwistika-new
+
+              # Start dengan port production
+              docker run -d \
+                --name putuwistika \
+                --restart unless-stopped \
+                --network host \
+                -e PORT=3000 \
+                putuwistika:new
+
+              # Cleanup
+              docker rmi putuwistika:old 2>/dev/null || true
+              docker tag putuwistika:new putuwistika:old
+              docker rm putuwistika-new 2>/dev/null || true
+
+              echo "🎉 Zero-downtime deployment complete!"
             else
-              pm2 start ecosystem.config.js
-              pm2 save
-              pm2 startup systemd -u $USER --hp $HOME
+              echo "❌ Health check failed!"
+              docker stop putuwistika-new
+              docker rm putuwistika-new
+              exit 1
             fi
-
-            # Health check
-            sleep 3
-            curl -f http://localhost:3000 > /dev/null && echo "✅ Deployed!" || exit 1
           ENDSSH
